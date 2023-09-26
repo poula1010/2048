@@ -1,5 +1,5 @@
 import { gridArraySelector} from "./gridSlice";
-import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import Block from "../../components/Block";
 export default function Grid(){
     const gridArr = useSelector(gridArraySelector);
