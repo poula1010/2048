@@ -1,15 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { useEffect } from 'react';
 import './App.css';
+import Grid from './features/Grid/Grid';
 import { useDispatch } from 'react-redux';
+import { initializeArray } from './features/Grid/gridSlice';
 function App() {
+  const dispatch = useDispatch();
+  function handleKeyDown(e){
+    if(e.key === "ArrowRight"){
+    dispatch(initializeArray());
+  }
+}
+  useEffect(()=>{
+    window.addEventListener("keydown",handleKeyDown);
+  },[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-      </header>
+      <div className='buttonHandle'>
+        <Grid/>
+      </div>
     </div>
   );
 }
